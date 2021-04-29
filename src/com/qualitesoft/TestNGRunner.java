@@ -13,7 +13,7 @@ public class TestNGRunner {
 		// TODO Auto-generated method stub
 		TestNG testng = new TestNG();
 		List<String> suites = Lists.newArrayList();
-		suites.add("./testng.xml");
+		suites.add("./FeedbackRating.xml");
 		testng.setTestSuites(suites);
 		testng.run();
 	}

@@ -59,12 +59,12 @@ public class SubmitFeedBack extends InitializeTest {
 					((JavascriptExecutor) driver).executeScript("arguments[0].click();", element);
 
 					Thread.sleep(3000);
-					boolean isReviewRequested = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//span[text()='A review will be requested for this order.']"));
+					boolean isReviewRequested = WaitTool.isElementPresentAndDisplay(driver, By.xpath("//kat-statusindicator[@label='A review will be requested for this order.']"));
 					System.out.println("Is Review Requested: "+isReviewRequested);
 
 					if(isReviewRequested) {
 						Date date = new Date();
-						DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss a");
+						DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 						// Use PST time zone to format the date in
 						df.setTimeZone(TimeZone.getTimeZone("PST"));

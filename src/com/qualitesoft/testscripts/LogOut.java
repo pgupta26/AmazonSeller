@@ -3,14 +3,14 @@ package com.qualitesoft.testscripts;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.annotations.Test;
 
-import com.qualitesoft.AmazonScrapperProject.pageobjects.LoginPage;
+import com.qualitesoft.pageobjects.LoginPage;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class LogOut extends InitializeTest{
-	@Test(priority=2)
+	@Test
 	public void testLogOut(){
 
 		LoginPage loginPage = new LoginPage(driver);

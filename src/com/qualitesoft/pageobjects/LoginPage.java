@@ -1,4 +1,4 @@
-package com.qualitesoft.AmazonScrapperProject.pageobjects;
+package com.qualitesoft.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

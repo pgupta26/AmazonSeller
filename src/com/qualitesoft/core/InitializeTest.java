@@ -50,40 +50,12 @@ public class InitializeTest {
 	public static String loginuser=null;
 	public static String Row=null;
 	public static String emailcreated=null;
-
-	/*@BeforeTest
-	public void initialize(ITestContext context) {
-
-		browser = context.getCurrentXmlTest().getParameter("browser");
-		URL = context.getCurrentXmlTest().getParameter("URL");
-		retryCount = context.getCurrentXmlTest().getParameter("retryCount");
-		project = context.getCurrentXmlTest().getParameter("project");
-		existingbrand = context.getCurrentXmlTest().getParameter("existingbrand");
-		templateused = context.getCurrentXmlTest().getParameter("templateused");
-		manageproductfile = context.getCurrentXmlTest().getParameter("manageproductfile");
-		managefullorderfile = context.getCurrentXmlTest().getParameter("managefullorderfile");
-		managequickorderfile = context.getCurrentXmlTest().getParameter("managequickorderfile");
-		fcusername = context.getCurrentXmlTest().getParameter("fcusername");
-		fcpassword = context.getCurrentXmlTest().getParameter("fcpassword");
-		plaquery= context.getCurrentXmlTest().getParameter("plaquery");
-		crusername= context.getCurrentXmlTest().getParameter("crusername");
-		crpassword= context.getCurrentXmlTest().getParameter("crpassword");
-		//crorderId= context.getCurrentXmlTest().getParameter("crorderId");
-		keyword= context.getCurrentXmlTest().getParameter("keyword");
-		brandname=context.getCurrentXmlTest().getParameter("brandname");
-		loginuser = context.getCurrentXmlTest().getParameter("loginuser");
-		testname = context.getCurrentXmlTest().getName();
-		Row = context.getCurrentXmlTest().getParameter("Row");
-
-		ScreenShot.createScreenshotFolder(testname);
-	}*/
 	
 	@BeforeSuite
 	public void logConfigure() {
 		DOMConfigurator.configure("log4j.xml");
 	}
 
-	//@Parameters({ "browser", "URL" })
 	@BeforeClass
 	public WebDriver setUp(ITestContext context) {
 		project = context.getCurrentXmlTest().getParameter("project");
@@ -106,11 +78,6 @@ public class InitializeTest {
 		Log.info(testname + " started.");
 		return driver;
 	}
-	
-	/*@BeforeTest
-	public void testName() {
-		Log.info(testname + " started.");
-	}*/
 
 	@AfterClass
 	public void tearDown() {

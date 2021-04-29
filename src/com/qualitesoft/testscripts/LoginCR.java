@@ -7,13 +7,13 @@ import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
-import com.qualitesoft.AmazonScrapperProject.pageobjects.LoginPage;
+import com.qualitesoft.pageobjects.LoginPage;
 
 
 
 public class LoginCR extends InitializeTest  {
 
-	@Test(priority=0)
+	@Test
 	public void testLoginCR()  {
 
 		LoginPage loginPage = new LoginPage(driver);

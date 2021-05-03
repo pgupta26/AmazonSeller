@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Late Delivery Notification Suite">
+
+	<parameter name="project" value="Feedback Rating" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="https://sellercentral.amazon.com/" />
+	<parameter name="crusername" value="cymaxqa@gmail.com" />
+	<parameter name="crpassword" value="automation123" />
+
+	<test name="Test Login">
+		<classes>
+			<class name="com.qualitesoft.testscripts.LoginCR" />
+		</classes>
+	</test>
+	
+	<test name="Test send delivery notification">
+		<parameter name="filename" value="Multi Tracking Notification.xlsx"></parameter>
+		<classes>
+			<class name="com.qualitesoft.testscripts.MultiTrackingNotification" />
+		</classes>
+	</test>
+	
+	<test name="Test LogOut">
+		<classes>
+			<class name="com.qualitesoft.testscripts.LogOut" />
+		</classes>
+	</test>
+</suite>

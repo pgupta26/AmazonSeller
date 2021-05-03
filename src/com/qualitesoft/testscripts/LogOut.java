@@ -10,6 +10,7 @@ import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 
 public class LogOut extends InitializeTest{
+	
 	@Test
 	public void testLogOut(){
 

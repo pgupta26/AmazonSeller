@@ -15,9 +15,9 @@
 		</classes>
 	</test>
 	
-	<test name="Test Submit Feedback - TestData1">
+	<test name="Test Request customer feedback" group-by-instances="true">
 		<parameter name="startrecord" value="2"></parameter>
-		<parameter name="endrecord" value="701"></parameter>
+		<parameter name="endrecord" value="27"></parameter>
 		<parameter name="filename" value="TestData1.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.SubmitFeedBack" />
@@ -29,4 +29,5 @@
 			<class name="com.qualitesoft.testscripts.LogOut" />
 		</classes>
 	</test>
+
 </suite>

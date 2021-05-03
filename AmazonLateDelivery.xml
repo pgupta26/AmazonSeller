@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Submit Feedback Suite">
+
+	<parameter name="project" value="Submit Feedback" />
+	<parameter name="browser" value="chrome" />
+	<parameter name="URL" value="https://sellercentral.amazon.com/" />
+	<parameter name="crusername" value="cymaxqa@gmail.com" />
+	<parameter name="crpassword" value="automation123" />
+	
+	<test name="Test Login">
+		<classes>
+			<class name="com.qualitesoft.testscripts.LoginCR" />
+		</classes>
+	</test>
+	
+	<test name="Test Submit Feedback - TestData1">
+		<parameter name="filename" value="AZ late delivery orders FedEx.xlsx"></parameter>
+		<classes>
+			<class name="com.qualitesoft.testscripts.LateDeliveryNotification" />
+		</classes>
+	</test>
+	
+	<test name="Test LogOut">
+		<classes>
+			<class name="com.qualitesoft.testscripts.LogOut" />
+		</classes>
+	</test>
+</suite>

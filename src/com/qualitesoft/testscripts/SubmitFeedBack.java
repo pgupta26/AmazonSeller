@@ -14,7 +14,6 @@ import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
-import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
@@ -24,7 +23,6 @@ public class SubmitFeedBack extends InitializeTest {
 	@Test
 	@Parameters({"filename","startrecord","endrecord"})
 	public void submitFeedBack(String filename, int startrecord, int endrecord) {
-		
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
 		Xls_Reader xr=new Xls_Reader("binaries/"+filename);
 

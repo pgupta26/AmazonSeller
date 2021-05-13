@@ -1,0 +1,216 @@
+<html>
+<head>
+<title>TestNG:  Test send multi tracking notification</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Test send multi tracking notification</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>1/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed May 12 11:57:19 IST 2021</td>
+</tr>
+<tr><td>Total time:</td><td>423 seconds (423089 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='com.qualitesoft.testscripts.MultiTrackingNotification.lateDeliveryNotification()'><b>lateDeliveryNotification</b><br>Test class: com.qualitesoft.testscripts.MultiTrackingNotification<br>Parameters: FedEx Multi Tracking 05-11.xlsx, 2, 15<br/>
+<a href="#Output-1626852381" onClick='toggleBox("Output-1626852381", this, "Show output", "Hide output");'>Show output</a>
+
+<a href="#Output-1626852381" onClick="toggleAllBoxes();">Show all outputs</a>
+<div class='log' id="Output-1626852381">
+Row Number: 2 Order ID: 111-1482055-1873863<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Notify of a problem with shipping your order'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 2 sent successsfully.<br/>
+Row Number: 3 Order ID: 112-1661465-4442607<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Notify of a problem with shipping your order'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 3 sent successsfully.<br/>
+Row Number: 4 Order ID: 113-7266676-0799445<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 4 sent successsfully.<br/>
+Row Number: 5 Order ID: 114-1679509-0431446<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Notify of a problem with shipping your order'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 5 sent successsfully.<br/>
+Row Number: 6 Order ID: 111-4763156-1737857<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Notify of a problem with shipping your order'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 6 sent successsfully.<br/>
+Row Number: 7 Order ID: 111-8760228-6954668<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 7 sent successsfully.<br/>
+Row Number: 8 Order ID: 112-8598578-1176203<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 8 sent successsfully.<br/>
+Row Number: 9 Order ID: 113-5937182-9945065<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 9 sent successsfully.<br/>
+Row Number: 10 Order ID: 111-5195417-4747428<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 10 sent successsfully.<br/>
+Row Number: 11 Order ID: 111-8974313-8729830<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Notify of a problem with shipping your order'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 11 sent successsfully.<br/>
+Row Number: 12 Order ID: 111-9313481-3549835<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 12 sent successsfully.<br/>
+Row Number: 13 Order ID: 113-0950204-2924264<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 13 sent successsfully.<br/>
+Row Number: 14 Order ID: 114-2873539-5453858<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 14 sent successsfully.<br/>
+Row Number: 15 Order ID: 114-4813211-0673853<br/>
+Element by By.xpath: //a[@data-test-id='buyer-name-with-link'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+Element by By.xpath: //kat-radiobutton[@label='Other'] found.<br/>
+WebElement clicked.<br/>
+Element by By.xpath: //kat-button[@label='Send'] found.<br/>
+WebElement clicked.<br/>
+Notification for Row Number: 15 sent successsfully.<br/>
+</div>
+</td>
+<td></td>
+<td>423</td>
+<td>com.qualitesoft.testscripts.MultiTrackingNotification@1d8d30f7</td></tr>
+</table><p>
+</body>
+</html>

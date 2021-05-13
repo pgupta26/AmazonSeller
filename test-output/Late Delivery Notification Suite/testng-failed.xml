@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Late Delivery Notification Suite]">
+  <parameter name="crpassword" value="automation123"/>
+  <parameter name="browser" value="chrome"/>
+  <parameter name="project" value="Feedback Rating"/>
+  <parameter name="crusername" value="cymaxqa@gmail.com"/>
+  <parameter name="URL" value="https://sellercentral.amazon.com/"/>
+  <test thread-count="5" name="Test LogOut(failed)">
+    <classes>
+      <class name="com.qualitesoft.testscripts.LogOut">
+        <methods>
+          <include name="initialize"/>
+          <include name="testLogOut"/>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.qualitesoft.testscripts.LogOut -->
+    </classes>
+  </test> <!-- Test LogOut(failed) -->
+</suite> <!-- Failed suite [Late Delivery Notification Suite] -->

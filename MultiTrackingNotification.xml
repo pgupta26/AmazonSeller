@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Late Delivery Notification Suite">
+<suite name="Multi Tracking Notification Suite">
 
-	<parameter name="project" value="Feedback Rating" />
+	<parameter name="project" value="Multi Tracking Notification" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://sellercentral.amazon.com/" />
 	<parameter name="crusername" value="cymaxqa@gmail.com" />
@@ -15,8 +15,10 @@
 		</classes>
 	</test>
 	
-	<test name="Test send delivery notification">
-		<parameter name="filename" value="Multi Tracking Notification.xlsx"></parameter>
+	<test name="Test send multi tracking notification">
+		<parameter name="startrecord" value="2"></parameter>
+		<parameter name="endrecord" value="15"></parameter>
+		<parameter name="filename" value="FedEx Multi Tracking 05-11.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.MultiTrackingNotification" />
 		</classes>

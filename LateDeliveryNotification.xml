@@ -3,7 +3,7 @@
 
 <suite name="Late Delivery Notification Suite">
 
-	<parameter name="project" value="Feedback Rating" />
+	<parameter name="project" value="Late Delivery Notification" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://sellercentral.amazon.com/" />
 	<parameter name="crusername" value="cymaxqa@gmail.com" />
@@ -15,9 +15,10 @@
 		</classes>
 	</test>
 	
-	
-	<test name="Test send delivery notification">
-		<parameter name="filename" value="Late Delivery Notification.xlsx"></parameter>
+	<test name="Test send late delivery notification">
+		<parameter name="startrecord" value="7"></parameter>
+		<parameter name="endrecord" value="10"></parameter>
+		<parameter name="filename" value="AZ Late Delivery FedEx 05-11.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.LateDeliveryNotification" />
 		</classes>

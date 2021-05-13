@@ -1,5 +1,7 @@
 package com.qualitesoft.testscripts;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
@@ -14,10 +16,27 @@ import com.qualitesoft.core.Xls_Reader;
 import io.github.sukgu.Shadow;
 
 public class LateDeliveryNotification extends InitializeTest {
+	
+	public void selectContactReason() {
+			WebElement otherRationButton = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10);
+			boolean flag = false;
+			if(otherRationButton.getAttribute("disabled") == null) {
+				flag = true;
+			} 
+			
+			if(flag) {
+				SeleniumFunction.click(
+						WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10));
+				
+			} else {
+				SeleniumFunction.click(
+						WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Notify of a problem with shipping your order']"), 10));
+			}
+	}
 
 	@Test
-	@Parameters({"filename"})
-	public void lateDeliveryNotification(String filename) {
+	@Parameters({"filename","startrecord","endrecord"})
+	public void lateDeliveryNotification(String filename, int startrecord, int endrecord) {
 
 		try {
 
@@ -37,7 +56,7 @@ public class LateDeliveryNotification extends InitializeTest {
 					"Kind Regards,\r\n" + 
 					"Cymax Customer Support ";
 
-			for(int i=2;i<=rowsCount;i++) {
+			for(int i=startrecord;i<=endrecord;i++) {
 				
 				try {
 					
@@ -48,8 +67,9 @@ public class LateDeliveryNotification extends InitializeTest {
 					str = str.replace("\"DATE FROM COLUMN G\"", fedEx_EDD);
 					
 					String OrderDetailPage = "https://sellercentral.amazon.com/orders-v3/order/"+PONumber;
+					SeleniumFunction.getCurrentWindow(driver);
 					driver.get(OrderDetailPage);
-					Thread.sleep(3000);
+					WaitTool.sleep(3);
 					
 					/*// Hover over Orders tab
 					SeleniumFunction.moveToElement(driver,
@@ -73,21 +93,22 @@ public class LateDeliveryNotification extends InitializeTest {
 
 					//Switch to new tab
 					SeleniumFunction.getCurrentWindow(driver);
-					WaitTool.sleep(3);
+					WaitTool.sleep(5);
 					
 					//Click on Other option button
-					SeleniumFunction.click(
-							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10));
+					this.selectContactReason();
 
 					//Send Complete Message
+					WaitTool.sleep(1);
 					Shadow shadow = new Shadow(driver);
 					WebElement element = shadow.findElement("textarea[part='textarea']");
 					element.sendKeys(str);
 					WaitTool.sleep(1);
 					
 					//Click Send Button
-					/*SeleniumFunction.click(
-							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-button[@label='Send']"), 10));*/
+					SeleniumFunction.click(
+							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-button[@label='Send']"), 10));
+					WaitTool.sleep(3);
 					Log.info("Notification for Row Number: "+i+" sent successsfully.");
 					xr.setCellData("Sheet1", "Status", i, "Pass");
 					
@@ -95,11 +116,15 @@ public class LateDeliveryNotification extends InitializeTest {
 					driver.close();
 
 					//Switch to parent window
+					WaitTool.sleep(1);
 					SeleniumFunction.getCurrentWindow(driver);
 					WaitTool.sleep(2);
 					
 				}catch(Exception e) {
 					xr.setCellData("Sheet1", "Status", i, "Fail");
+					Set<String> windows = driver.getWindowHandles();
+					if(windows.size()==2)
+						driver.close();
 				}	
 			}	
 		}catch(Exception ex) {

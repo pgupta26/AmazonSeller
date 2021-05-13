@@ -221,6 +221,23 @@ public static String getCurrentUrl(WebDriver driver){
 			throw e;
 		}
 	}
+    
+    public static void scrollDownByPixel(WebDriver driver, String pixel){
+		JavascriptExecutor jse=(JavascriptExecutor)driver;
+		jse.executeScript("window.scrollBy(0,"+ pixel +")");
+	}
+    
+  //to perform Scroll on application using  Selenium
+  	public static void scrollDownUptoFooter(WebDriver driver){
+  		JavascriptExecutor js = (JavascriptExecutor) driver;
+  		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+  	}
+  	//to perform Scroll on application using  Selenium
+  	public static void 	scrollUPUptoHeader(WebDriver driver){
+  		JavascriptExecutor js = (JavascriptExecutor) driver;
+  		js.executeScript("window.scrollBy(document.body.scrollHeight,0)");
+  	}
+
 
 	 
 }

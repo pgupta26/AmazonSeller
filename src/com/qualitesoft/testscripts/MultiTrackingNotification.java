@@ -1,7 +1,8 @@
 package com.qualitesoft.testscripts;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -16,15 +17,30 @@ import io.github.sukgu.Shadow;
 
 public class MultiTrackingNotification extends InitializeTest {
 	
+	public void selectContactReason() {
+		WebElement otherRationButton = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10);
+		boolean flag = false;
+		if(otherRationButton.getAttribute("disabled") == null) {
+			flag = true;
+		}
+		
+		if(flag) {
+			SeleniumFunction.click(
+					WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10));
+			
+		} else {
+			SeleniumFunction.click(
+					WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Notify of a problem with shipping your order']"), 10));
+		}
+}
+	
 	@Test
-	@Parameters({"filename"})
-	public void lateDeliveryNotification(String filename) {
+	@Parameters({"filename","startrecord","endrecord"})
+	public void lateDeliveryNotification(String filename, int startrecord, int endrecord) {
 		
 		try {
 			 
 			Xls_Reader xr=new Xls_Reader("binaries/"+filename);
-			int rowsCount = xr.getRowCount("Sheet1");
-			Log.info("Total Rows Count: "+rowsCount);
 			
 			String str = "Hello.\r\n" + 
 					"\r\n" + 
@@ -41,7 +57,7 @@ public class MultiTrackingNotification extends InitializeTest {
 					"Thank you\r\n" + 
 					"Cymax Customer Support";
 			
-			for(int i=2;i<=rowsCount;i++) {
+			for(int i=startrecord;i<=endrecord;i++) {
 				
 				try {
 					
@@ -52,8 +68,9 @@ public class MultiTrackingNotification extends InitializeTest {
 					str = str.replace("DATA FROM COLUMN D", trackingNumbers);
 					
 					String OrderDetailPage = "https://sellercentral.amazon.com/orders-v3/order/"+PONumber;
+					SeleniumFunction.getCurrentWindow(driver);
 					driver.get(OrderDetailPage);
-					Thread.sleep(3000);
+					WaitTool.sleep(3);
 		
 					/*// Hover over Orders tab
 					SeleniumFunction.moveToElement(driver,
@@ -77,20 +94,21 @@ public class MultiTrackingNotification extends InitializeTest {
 					
 					//Switch to new tab
 					SeleniumFunction.getCurrentWindow(driver);
-					WaitTool.sleep(3);
+					WaitTool.sleep(5);
 					
 					//Click on Other option button
-					SeleniumFunction.click(
-							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10));
+					this.selectContactReason();
 					
 					//Send Complete Message
+					WaitTool.sleep(1);
 					Shadow shadow = new Shadow(driver);
 					WebElement element = shadow.findElement("textarea[part='textarea']");
 					element.sendKeys(str);
 					
 					//Click Send Button
-					/*SeleniumFunction.click(
-							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-button[@label='Send']"), 10));*/
+					SeleniumFunction.click(
+							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-button[@label='Send']"), 10));
+					WaitTool.sleep(3);
 					Log.info("Notification for Row Number: "+i+" sent successsfully.");
 					xr.setCellData("Sheet1", "Status", i, "Pass");
 					
@@ -98,11 +116,15 @@ public class MultiTrackingNotification extends InitializeTest {
 					driver.close();
 					
 					//Switch to parent window
+					WaitTool.sleep(1);
 					SeleniumFunction.getCurrentWindow(driver);
 					WaitTool.sleep(2);
 					
 				}catch(Exception e) {
 					xr.setCellData("Sheet1", "Status", i, "Fail");
+					Set<String> windows = driver.getWindowHandles();
+					if(windows.size()==2)
+						driver.close();
 				}
 			}	
 			

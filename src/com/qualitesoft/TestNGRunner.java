@@ -10,10 +10,9 @@ import com.beust.jcommander.internal.Lists;
 public class TestNGRunner {
 
 	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
 		TestNG testng = new TestNG();
 		List<String> suites = Lists.newArrayList();
-		suites.add("./FeedbackRating.xml");
+		suites.add("./MultiTrackingNotification.xml");
 		testng.setTestSuites(suites);
 		testng.run();
 	}

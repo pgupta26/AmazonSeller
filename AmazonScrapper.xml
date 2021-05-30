@@ -17,7 +17,7 @@
 	
 	<test name="Test Request customer feedback" group-by-instances="true">
 		<parameter name="startrecord" value="2"></parameter>
-		<parameter name="endrecord" value="27"></parameter>
+		<parameter name="endrecord" value="28"></parameter>
 		<parameter name="filename" value="TestData1.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.SubmitFeedBack" />

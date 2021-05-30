@@ -2,27 +2,26 @@ package com.qualitesoft.testscripts;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import org.apache.poi.xssf.streaming.SXSSFSheet;
-import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPSClient;
 import org.apache.commons.net.util.TrustManagerUtils;
-import org.apache.poi.ss.usermodel.Row;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.opencsv.CSVWriter;
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
 import com.qualitesoft.core.SeleniumFunction;
@@ -30,9 +29,10 @@ import com.qualitesoft.core.WaitTool;
 
 public class GetFeedbackRating extends InitializeTest {
 
-	FileOutputStream outputStream;
-	SXSSFWorkbook wb;
+	FileWriter outputfile;
+	CSVWriter writer;
 	String fileName;
+	List<String[]> rows;
 
 	@Test
 	@Parameters({ "startdate", "enddate" })
@@ -143,7 +143,9 @@ public class GetFeedbackRating extends InitializeTest {
 
 			List<WebElement> allRows = null;
 			List<WebElement> allColumns = null;
-
+			rows = new ArrayList<String[]>();
+			String[] row = null;
+			
 			// Read data and store into excel
 			WaitTool.sleep(5);
 
@@ -151,19 +153,18 @@ public class GetFeedbackRating extends InitializeTest {
 			Date myDate = new Date();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("MMddyyyyhhmmss");
 			String currentDate = dateFormat.format(myDate);
-			fileName = "binaries/" + "FeedbackDetails" + "_" + currentDate + ".xlsx";
+			fileName = "binaries/" + "FeedbackDetails" + "_" + currentDate + ".csv";
 			Log.info("Dynamic file name is: " + fileName);
 
-			XSSFWorkbook workbook = new XSSFWorkbook();
-			wb = new SXSSFWorkbook(workbook);
-			wb.setCompressTempFiles(true);
-
-			SXSSFSheet sh = (SXSSFSheet) wb.createSheet("FeedbackDetails");
-			sh.setRandomAccessWindowSize(100);
-
-			// XSSFSheet sheet = workbook.getSheet("Sheet1");
-			int rowCount = sh.createRow(0).getLastCellNum();
-			Row row;
+			// create FileWriter object with file as parameter
+	        outputfile = new FileWriter(fileName);
+	  
+	        // create CSVWriter object filewriter object as parameter
+	        writer = new CSVWriter(outputfile);
+	        
+	        // adding header to csv
+	        String[] header = { "Date", "Rating", "Order ID", "Comments" };
+	        writer.writeNext(header);
 
 			int pageCount = Integer.parseInt(SeleniumFunction.getText(
 					driver.findElement(By.xpath("//kat-pagination/ul/li[@class='ellipsis']/following-sibling::li"))));
@@ -173,7 +174,7 @@ public class GetFeedbackRating extends InitializeTest {
 				WaitTool.sleep(3);
 				allRows = driver.findElements(By.xpath(
 						"//kat-tab[@label='All ratings']//kat-table[@role='table']/kat-table-body/kat-table-row"));
-				System.out.println("Page Number: " + pageCounter + " Total Rows: " + allRows.size());
+				Log.info("Page Number: " + pageCounter + " Total Rows: " + allRows.size());
 
 				for (int i = 1; i <= allRows.size(); i++) {
 					allColumns = driver.findElements(By
@@ -181,19 +182,17 @@ public class GetFeedbackRating extends InitializeTest {
 									+ i + "]/kat-table-cell"));
 					ratingdate = sdfo.parse(allColumns.get(0).getText());
 
-					// if (startdate.compareTo(ratingdate) > 0 ||
-					// enddate.compareTo(ratingdate) < 0) {
 					if (!(startdate.compareTo(ratingdate) * ratingdate.compareTo(enddate) >= 0)) {
 						if (count == 1) {
 							break outerloop;
 						}
 					} else {
-						rowCount++;
-						row = sh.createRow(rowCount);
-						row.createCell(0).setCellValue(allColumns.get(0).getText());
-						row.createCell(1).setCellValue(allColumns.get(1).getText());
-						row.createCell(2).setCellValue(allColumns.get(2).getText());
-						row.createCell(3).setCellValue(allColumns.get(3).getText());
+						row = new String[4];
+						row[0] = allColumns.get(0).getText();
+						row[1] = allColumns.get(1).getText();
+						row[2] = allColumns.get(2).getText();
+						row[3] = allColumns.get(3).getText();
+						rows.add(row);
 						count = 1;
 					}
 				}
@@ -206,18 +205,15 @@ public class GetFeedbackRating extends InitializeTest {
 							By.xpath("//kat-pagination/ul/li[@class='nav nav-right']/kat-icon"), 5));
 				}
 			}
-
-			outputStream = new FileOutputStream(fileName);
-			wb.write(outputStream);
-			wb.close();
-			outputStream.close();
+			
+			writer.writeAll(rows);
+			writer.close();
 
 		} catch (Exception ex) {
 			try {
-				outputStream = new FileOutputStream(fileName);
-				wb.write(outputStream);
-				wb.close();
-				outputStream.close();
+		        writer = new CSVWriter(outputfile);
+				writer.writeAll(rows);
+				writer.close();
 
 			} catch (Exception e) {
 				System.out.println("Error occurred while writing in file.....");

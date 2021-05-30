@@ -18,7 +18,7 @@
 	<test name="Test send multi tracking notification">
 		<parameter name="startrecord" value="2"></parameter>
 		<parameter name="endrecord" value="15"></parameter>
-		<parameter name="filename" value="FedEx Multi Tracking 05-11.xlsx"></parameter>
+		<parameter name="filename" value="FedEx Multi Tracking 05-12.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.MultiTrackingNotification" />
 		</classes>

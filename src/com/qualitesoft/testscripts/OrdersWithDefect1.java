@@ -30,23 +30,6 @@ public class OrdersWithDefect1 extends InitializeTest  {
 	@Test
 	public void testGetOrderWithDefectsDetails() throws IOException {
 
-		// Hover over Performance tab
-		SeleniumFunction.moveToElement(driver,
-				WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'Performance')]"), 20));
-		WaitTool.sleep(2);
-
-		// Click on Account Health under Performance tab
-		SeleniumFunction.click(
-				WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Account Health"), 10));
-
-		//Hover over Report link
-		SeleniumFunction.moveToElement(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='https://sellercentral.amazon.com/performance/report/order-defects?ref=sp_st_nav_sphreports']"), 10));
-
-
-		//Click on Orders with Defects link
-		SeleniumFunction.click(
-				WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Orders with Defects"), 10));
-
 		// Store data into excel
 		storeOrdersWithDefectsIntoExcel();
 	}
@@ -54,6 +37,23 @@ public class OrdersWithDefect1 extends InitializeTest  {
 	public String storeOrdersWithDefectsIntoExcel() {
 
 		try {
+			
+			// Hover over Performance tab
+			SeleniumFunction.moveToElement(driver,
+					WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[contains(text(),'Performance')]"), 20));
+			WaitTool.sleep(2);
+
+			// Click on Account Health under Performance tab
+			SeleniumFunction.click(
+					WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Account Health"), 10));
+
+			//Hover over Report link
+			SeleniumFunction.moveToElement(driver, WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@href='https://sellercentral.amazon.com/performance/report/order-defects?ref=sp_st_nav_sphreports']"), 10));
+
+
+			//Click on Orders with Defects link
+			SeleniumFunction.click(
+					WaitTool.waitForElementPresentAndDisplay(driver, By.partialLinkText("Orders with Defects"), 10));
 
 			// Create dynamic file name
 			Date myDate = new Date();

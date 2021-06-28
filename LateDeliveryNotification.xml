@@ -17,8 +17,8 @@
 	
 	<test name="Test send late delivery notification">
 		<parameter name="startrecord" value="2"></parameter>
-		<parameter name="endrecord" value="32"></parameter>
-		<parameter name="filename" value="AZ Late Delivery FedEx 05-12.xlsx"></parameter>
+		<parameter name="endrecord" value="62"></parameter>
+		<parameter name="filename" value="FedEx Late 06-24.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.LateDeliveryNotification" />
 		</classes>

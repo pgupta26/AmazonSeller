@@ -43,19 +43,17 @@ public class MultiTrackingNotification extends InitializeTest {
 			Xls_Reader xr=new Xls_Reader("binaries/"+filename);
 			
 			String str = "Hello.\r\n" + 
+					" \r\n" + 
+					"Regarding your order from Cymax Stores, we are reaching out to you to inform you that the item(s) in your order are shipped in multiple boxes.\r\n" + 
 					"\r\n" + 
-					"Regarding your order for Tvilum products, we are reaching out to you to inform you that your item shipped in multiple boxes.\r\n" + 
-					"\r\n" + 
-					"Due to Amazon's restrictions, we were only able to communicate one tracking number.\r\n" + 
+					"Due to Amazon's restrictions, we were only able to provide you with one tracking number via their system.\r\n" + 
 					"\r\n" + 
 					"Your FedEx tracking numbers for your order are:\r\n" + 
-					"\r\n" + 
-					"\"DATA FROM COLUMN D\" \r\n" + 
-					"\r\n" + 
 					" \r\n" + 
+					"\"DATA FROM COLUMN D\"\r\n" + 
 					"\r\n" + 
 					"Thank you\r\n" + 
-					"Cymax Customer Support";
+					"Cymax Customer Support ";
 			
 			for(int i=startrecord;i<=endrecord;i++) {
 				

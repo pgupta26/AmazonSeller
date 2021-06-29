@@ -44,7 +44,7 @@ public class LateDeliveryNotification extends InitializeTest {
 			int rowsCount = xr.getRowCount("Sheet1");
 			Log.info("Total Rows Count: "+rowsCount);
 			
-			String str="Hi,\r\n" + 
+			String emailTemplate="Hi,\r\n" + 
 					"\r\n" + 
 					"Your package is still on the way however may arrive later than expected. We are working to have this delivered as soon as possible.\r\n" + 
 					"\r\n" + 
@@ -64,7 +64,7 @@ public class LateDeliveryNotification extends InitializeTest {
 					Log.info("Row Number: "+i+" Order ID: "+PONumber);
 					
 					String fedEx_EDD=xr.getCellData("Sheet1","FedEx_EDD", i).trim();
-					str = str.replace("\"DATE FROM COLUMN G\"", fedEx_EDD);
+					String str = emailTemplate.replace("\"DATE FROM COLUMN G\"", fedEx_EDD);
 					
 					String OrderDetailPage = "https://sellercentral.amazon.com/orders-v3/order/"+PONumber;
 					SeleniumFunction.getCurrentWindow(driver);

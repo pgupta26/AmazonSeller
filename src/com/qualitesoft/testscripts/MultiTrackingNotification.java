@@ -42,7 +42,7 @@ public class MultiTrackingNotification extends InitializeTest {
 			 
 			Xls_Reader xr=new Xls_Reader("binaries/"+filename);
 			
-			String str = "Hello.\r\n" + 
+			String emailTemplate = "Hello.\r\n" + 
 					" \r\n" + 
 					"Regarding your order from Cymax Stores, we are reaching out to you to inform you that the item(s) in your order are shipped in multiple boxes.\r\n" + 
 					"\r\n" + 
@@ -55,6 +55,7 @@ public class MultiTrackingNotification extends InitializeTest {
 					"Thank you\r\n" + 
 					"Cymax Customer Support ";
 			
+			
 			for(int i=startrecord;i<=endrecord;i++) {
 				
 				try {
@@ -63,7 +64,7 @@ public class MultiTrackingNotification extends InitializeTest {
 					Log.info("Row Number: "+i+" Order ID: "+PONumber);
 					
 					String trackingNumbers=xr.getCellData("Sheet1","TrackingNumbers", i).trim();
-					str = str.replace("DATA FROM COLUMN D", trackingNumbers);
+					String str = emailTemplate.replace("DATA FROM COLUMN D", trackingNumbers);
 					
 					String OrderDetailPage = "https://sellercentral.amazon.com/orders-v3/order/"+PONumber;
 					SeleniumFunction.getCurrentWindow(driver);

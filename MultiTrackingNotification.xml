@@ -16,9 +16,9 @@
 	</test>
 	
 	<test name="Test send multi tracking notification">
-		<parameter name="startrecord" value="118"></parameter>
-		<parameter name="endrecord" value="300"></parameter>
-		<parameter name="filename" value="AZ Multi Tracking 06-24.xlsx"></parameter>
+		<parameter name="startrecord" value="2"></parameter>
+		<parameter name="endrecord" value="4"></parameter>
+		<parameter name="filename" value="AZ Multi Tracking 06-28.xlsx"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.MultiTrackingNotification" />
 		</classes>

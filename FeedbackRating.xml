@@ -17,8 +17,8 @@
 	
 	
 	<test name="Test Get Feedback Rating">
-		<parameter name="startdate" value="05/01/2021"></parameter>
-		<parameter name="enddate" value="05/31/2021"></parameter>
+		<parameter name="startdate" value="06/01/2021"></parameter>
+		<parameter name="enddate" value="06/30/2021"></parameter>
 		<classes>
 			<class name="com.qualitesoft.testscripts.GetFeedbackRating" />
 		</classes>

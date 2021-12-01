@@ -24,7 +24,7 @@ public class LoginPage {
 			WebElement webElement = WaitTool.waitForElementPresentAndDisplay(driver, By.cssSelector(".secondary"), 10);
 			SeleniumFunction.click(webElement);
 		}catch(Exception ex) {			
-			WebElement webElement1 = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("(//div[@class='has-max-width'])[1]/div[2]/div[1]/div[1]/div/a/Strong"), 10);
+			WebElement webElement1 = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//strong[text()='Log in']"), 10);
 			SeleniumFunction.click(webElement1);
 		}
 	}

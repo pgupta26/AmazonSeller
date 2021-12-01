@@ -143,7 +143,7 @@ public class InitializeTest {
 				chromePrefs.put("download.default_directory", download);
 				ChromeOptions options = new ChromeOptions();
 				options.setExperimentalOption("prefs", chromePrefs);
-				//options.setBinary("C://Program Files//Google//Chrome//Application//chrome.exe");
+				options.setBinary("C://Program Files//Google//Chrome//Application//chrome.exe");
 				options.addArguments("--disable-notifications");
 				DesiredCapabilities cap = DesiredCapabilities.chrome();
 				options.addArguments("test-type");

@@ -12,7 +12,7 @@ public class TestNGRunner {
 	public static void main(String[] args) throws IOException {
 		TestNG testng = new TestNG();
 		List<String> suites = Lists.newArrayList();
-		suites.add("./FeedbackRating.xml");
+		suites.add("./OrdersWithDefect.xml");
 		testng.setTestSuites(suites);
 		testng.run();
 	}

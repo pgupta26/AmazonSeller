@@ -79,5 +79,14 @@ public class LoginPage {
 
 		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//*[@id=\"sc-content-container\"]/div/my-app/div/div/home/div/div[2]/kat-tabs/kat-tab[1]/feedback-list/kat-pagination/ul/li[9]/kat-icon/i"), 30);
 	}
+	
+	public WebElement selectCountry() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//div[text()='United States']"), 30);
+	}
+	
+	public WebElement selectAccount() {
+		return WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//button[@class='picker-switch-accounts-button']"), 30);
+	}
+	
 }
 

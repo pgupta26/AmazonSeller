@@ -29,6 +29,11 @@ public class LoginCR extends InitializeTest  {
 		System.out.println("Waiting for otp to appear------------");
 		WaitTool.sleep(30);
 		System.out.println("Wait Over................");
+		
+		//Select an account
+		SeleniumFunction.click(loginPage.selectCountry());
+		SeleniumFunction.click(loginPage.selectAccount());
+
 	}
 }
 

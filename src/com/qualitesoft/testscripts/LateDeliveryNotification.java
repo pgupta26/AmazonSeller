@@ -4,11 +4,13 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.qualitesoft.core.InitializeTest;
 import com.qualitesoft.core.Log;
+import com.qualitesoft.core.ScreenShot;
 import com.qualitesoft.core.SeleniumFunction;
 import com.qualitesoft.core.WaitTool;
 import com.qualitesoft.core.Xls_Reader;
@@ -18,7 +20,7 @@ import io.github.sukgu.Shadow;
 public class LateDeliveryNotification extends InitializeTest {
 	
 	public void selectContactReason() {
-			WebElement otherRationButton = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 10);
+			WebElement otherRationButton = WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-radiobutton[@label='Other']"), 30);
 			boolean flag = false;
 			if(otherRationButton.getAttribute("disabled") == null) {
 				flag = true;
@@ -89,14 +91,17 @@ public class LateDeliveryNotification extends InitializeTest {
 
 					//Click Buyer Name Link
 					SeleniumFunction.click(
-							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@data-test-id='buyer-name-with-link']"), 10));
+							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@data-test-id='buyer-name-with-link']"), 30));
+					Log.info("Buyer name clicked.");
 
 					//Switch to new tab
 					SeleniumFunction.getCurrentWindow(driver);
 					WaitTool.sleep(5);
+					Log.info("Switch to new window");
 					
 					//Click on Other option button
 					this.selectContactReason();
+					Log.info("Other option button clicked.");
 
 					//Send Complete Message
 					WaitTool.sleep(1);
@@ -104,32 +109,40 @@ public class LateDeliveryNotification extends InitializeTest {
 					WebElement element = shadow.findElement("textarea[part='textarea']");
 					element.sendKeys(str);
 					WaitTool.sleep(1);
+					Log.info("Message inserted");
 					
 					//Click Send Button
 					SeleniumFunction.click(
 							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//kat-button[@label='Send']"), 10));
 					WaitTool.sleep(3);
 					Log.info("Notification for Row Number: "+i+" sent successsfully.");
+					
+					//Update status in file
 					xr.setCellData("Sheet1", "Status", i, "Pass");
+					Log.info("Status pass updated");
 					
 					//Close current tab
 					driver.close();
+					Log.info("Window closed");
 
 					//Switch to parent window
 					WaitTool.sleep(1);
 					SeleniumFunction.getCurrentWindow(driver);
 					WaitTool.sleep(2);
+					Log.info("Switch to parent window");
 					
 				}catch(Exception e) {
 					xr.setCellData("Sheet1", "Status", i, "Fail");
+					Log.error("Notification Failed for Row Number: "+i+ " Message: "+e.getMessage());
+					ScreenShot.takeScreenShot(driver, "Notification Failed for Row Number: "+i);
 					Set<String> windows = driver.getWindowHandles();
 					if(windows.size()==2)
 						driver.close();
 				}	
 			}	
 		}catch(Exception ex) {
-			Log.info("Not able to find input file at specified path.");
-			ex.printStackTrace();
+			Log.error(ex.getMessage());
+			Assert.fail(ex.getMessage());
 		}
 	}
 

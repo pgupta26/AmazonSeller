@@ -3,8 +3,6 @@ package com.qualitesoft.core;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.net.URI;
-import java.net.URISyntaxException;
-
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class JavaFunction {

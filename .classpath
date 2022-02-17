@@ -7,15 +7,42 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/automation-0.1.1.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/commons-collections4-4.3.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/opencsv-5.4.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/poi-3.15.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/poi-ooxml-3.15.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/poi-ooxml-schemas-3.15.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/selenium-server-standalone-3.11.0.jar"/>
-	<classpathentry kind="lib" path="F:/QualiteSoft/AmazonSeller/lib/xmlbeans-3.1.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/ashot-1.5.3.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/automation-0.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/commons-collections4-4.3.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/commons-compress-1.21.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/curvesapi-1.04.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/dec-0.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/guice-3.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/httpclient5-5.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/httpcore5-5.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/jquery-3.5.1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/log4j-api-2.16.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/log4j-core-2.16.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/monte-screen-recorder-0.7.7.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/opencsv-5.4.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/pdfbox-app-3.0.0-RC1.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-3.15.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-examples-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-excelant-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-ooxml-3.15.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-ooxml-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-ooxml-schemas-3.15.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-ooxml-schemas-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/poi-scratchpad-3.16.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/selenium-server-standalone-3.11.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/slf4j-api-1.7.30.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/slf4j-simple-1.7.32.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/testng-6.9.10.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/velocity-dep-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/webdrivermanager-5.0.3.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/xmlbeans-2.6.0.jar"/>
+	<classpathentry kind="lib" path="D:/AmazonSeller/lib/xmlbeans-3.1.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

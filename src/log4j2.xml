@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="Warn">
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level- %msg%n"/>
+		</Console>
+		<RollingFile name="rollingFile" fileName="Logs\\app-info.html"
+                     filePattern="Logs/app-info-%d{yyyy-MM-dd}.html" append="false">
+            <HTMLLayout charset="UTF-8" title="Freight Club Logs" />
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true" />
+                <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+        </RollingFile>
+	</Appenders>
+	<Loggers>
+		<Root level="all">
+			<AppenderRef ref="console"/>
+			<AppenderRef ref="rollingFile"/>
+		</Root>
+	</Loggers>
+</Configuration>

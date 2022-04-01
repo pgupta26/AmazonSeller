@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Late Delivery Notification Suite">
+<suite name="Tracking Not Activated Notification Suite">
 
-	<parameter name="project" value="Late Delivery Notification" />
+	<parameter name="project" value="Tracking Not Activated" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://sellercentral.amazon.com/" />
 	<parameter name="crusername" value="cymaxqa@gmail.com" />
@@ -15,12 +15,12 @@
 		</classes>
 	</test>
 	
-	<test name="Test send late delivery notification">
-		<parameter name="startrecord" value="2"></parameter>
-		<parameter name="endrecord" value="204"></parameter>
-		<parameter name="filename" value="FedEx Late 03-30.xlsx"></parameter>
+	<test name="Test send no tracking notification">
+		<parameter name="startrecord" value="479"></parameter>
+		<parameter name="endrecord" value="745"></parameter>
+		<parameter name="filename" value="Hirsh AZ Label Created - Emailed 3.30.2022- To Neha.xlsx"></parameter>
 		<classes>
-			<class name="com.qualitesoft.testscripts.LateDeliveryNotification" />
+			<class name="com.qualitesoft.testscripts.NoTracking" />
 		</classes>
 	</test>
 	

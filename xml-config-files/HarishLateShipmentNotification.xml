@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="Late Delivery Notification Suite">
+<suite name="Harish Late Shipment Notification Suite">
 
-	<parameter name="project" value="Late Delivery Notification" />
+	<parameter name="project" value="HarishLateShipmentNotification" />
 	<parameter name="browser" value="chrome" />
 	<parameter name="URL" value="https://sellercentral.amazon.com/" />
 	<parameter name="crusername" value="cymaxqa@gmail.com" />
@@ -15,12 +15,12 @@
 		</classes>
 	</test>
 	
-	<test name="Test send late delivery notification">
-		<parameter name="startrecord" value="2"></parameter>
-		<parameter name="endrecord" value="204"></parameter>
-		<parameter name="filename" value="FedEx Late 03-30.xlsx"></parameter>
+	<test name="Test send no tracking notification">
+		<parameter name="startrecord" value="3"></parameter>
+		<parameter name="endrecord" value="500"></parameter>
+		<parameter name="filename" value="3.30 Update to AZ customers emailed on 3.24 - Delivered Temp.xlsx"></parameter>
 		<classes>
-			<class name="com.qualitesoft.testscripts.LateDeliveryNotification" />
+			<class name="com.qualitesoft.testscripts.HarishLateShipmentNotification" />
 		</classes>
 	</test>
 	

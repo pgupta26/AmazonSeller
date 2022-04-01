@@ -90,9 +90,19 @@ public class LateDeliveryNotification extends InitializeTest {
 							WaitTool.waitForElementPresentAndDisplay(driver, By.id("myo-search-button-announce"), 10));*/
 
 					//Click Buyer Name Link
+					if(!WaitTool.isElementPresentAndDisplay(driver, By.xpath("//a[@data-test-id='buyer-name-with-link']"))) {
+						Log.warn("Buyer link not found in 1st attempt. Retrying with url: "+OrderDetailPage);
+						driver.get(OrderDetailPage);
+						WaitTool.sleep(3);
+					}
 					SeleniumFunction.click(
 							WaitTool.waitForElementPresentAndDisplay(driver, By.xpath("//a[@data-test-id='buyer-name-with-link']"), 30));
 					Log.info("Buyer name clicked.");
+					
+					WaitTool.sleep(1);
+					if(WaitTool.isElementPresentAndDisplay(driver, By.xpath("//input[@value='YES, contact the original buyer']"))) {
+						SeleniumFunction.click(driver.findElement(By.xpath("//input[@value='YES, contact the original buyer']")));
+					}
 
 					//Switch to new tab
 					SeleniumFunction.getCurrentWindow(driver);
@@ -134,7 +144,7 @@ public class LateDeliveryNotification extends InitializeTest {
 				}catch(Exception e) {
 					xr.setCellData("Sheet1", "Status", i, "Fail");
 					Log.error("Notification Failed for Row Number: "+i+ " Message: "+e.getMessage());
-					ScreenShot.takeScreenShot(driver, "Notification Failed for Row Number: "+i);
+					ScreenShot.takeScreenShot(driver, "Notification Failed for Row Number_"+i);
 					Set<String> windows = driver.getWindowHandles();
 					if(windows.size()==2)
 						driver.close();
